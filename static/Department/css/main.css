@@ -1,0 +1,503 @@
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('/static/fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('/static/fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('/static/fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url('/static/fonts/poppins/Poppins-SemiBold.ttf');
+}
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+/*---------------------------------------------*/
+a {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+a:focus {
+    outline: none !important;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #57b846;
+}
+
+/*---------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+    margin: 0px;
+}
+
+p {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+}
+
+ul, li {
+    margin: 0px;
+    list-style-type: none;
+}
+
+
+/*---------------------------------------------*/
+input {
+    outline: none;
+    border: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+iframe {
+    border: none !important;
+}
+
+
+.container-login100-form-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.login100-form-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 120px;
+    height: 30px;
+    background-color: #57b846;
+    border-radius: 25px;
+
+    /*font-family: Poppins-Regular;*/
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.login100-form-btn:hover {
+    background-color: #333333;
+
+}
+
+.login100-form-btn:active{
+    background-color: #6c757d;
+    color: #000000;
+}
+
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 576px) {
+    .login100-form {
+        padding: 43px 15px 57px 117px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login100-form {
+        padding: 43px 15px 57px 15px;
+    }
+
+    .label-input100 {
+        text-align: left;
+        position: unset;
+        top: unset;
+        left: unset;
+        width: 100%;
+        padding: 0 5px;
+    }
+}
+
+
+
+.tab-group button{
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    background: #e5e6e7;
+    color: #333;
+    font-size: 20px;
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    border-top: 3px solid transparent;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.tab-group button:hover {
+    background: #a19f9e;
+    color: #080808;
+}
+.tab-group .active button {
+    background: #fff;
+    color: #444;
+    border-top: 3px solid #73cf41;
+}
+
+.tabs{
+    width: 100%;
+    margin-top:0px;
+    margin-bottom: 0px;
+    font-size:15px;
+    padding:0px;
+    list-style:none;
+
+    background:#383736;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.1);
+    position:relative;
+}
+
+.tabs a.bez{
+    text-decoration:none;
+    color: #ffffff;
+    text-transform:uppercase;
+    padding:5px 10px;
+    text-align: center;
+    vertical-align: center;
+    transition-duration:0.6s;
+}
+
+.tabs a.active{
+    border-radius:50px;
+    color: #3D3D3E !important;
+}
+
+.tabs a i{
+    margin-right:5px;
+}
+
+.tabs .selector{
+    height:100%;
+    display:inline-block;
+    position: absolute;
+    border-radius:50px;
+    transition-duration:0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: #1b1e21;
+    background: #05abe0;
+    background: -moz-linear-gradient(45deg, #ffffff 0%, #000000 100%);
+    background: -webkit-linear-gradient(45deg, #ffffff 0%,#000000 100%);
+    background: linear-gradient(45deg, #ffffff 0%,#ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#8200f4',GradientType=1 );
+}
+
+@media screen and (max-width: 510px) {
+    #sp {
+        font-size: 12px;
+    }
+}
+
+.modal-success {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dff0d8), to(#c8e5bc));
+    background-image: -webkit-linear-gradient(#dff0d8 0%, #c8e5bc 100%);
+    background-image: -moz-linear-gradient(#dff0d8 0%, #c8e5bc 100%);
+    background-image: -o-linear-gradient(#dff0d8 0%, #c8e5bc 100%);
+    background-image: linear-gradient(#dff0d8 0%, #c8e5bc 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffc8e5bc', GradientType=0);
+    border-color: #b2dba1;
+    border-radius: 6px 6px 0 0;
+}
+.modal-info {
+    background-image: -webkit-gradient(linear, 0 100%, 0 0, from(#d9edf7), to(#b9def0));
+    background-image: -webkit-linear-gradient(#d9edf7 0%, #b9def0 100%);
+    background-image: -moz-linear-gradient(#d9edf7 0%, #b9def0 100%);
+    background-image: -o-linear-gradient(#d9edf7 0%, #b9def0 100%);
+    background-image: linear-gradient(#d9edf7 0%, #b9def0 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9edf7', endColorstr='#ffb9def0', GradientType=0);
+    border-color: #9acfea;
+    border-radius: 6px 6px 0 0;
+}
+.modal-warning {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fcf8e3), to(#f8efc0));
+    background-image: -webkit-linear-gradient(#fcf8e3 0%, #f8efc0 100%);
+    background-image: -moz-linear-gradient(#fcf8e3 0%, #f8efc0 100%);
+    background-image: -o-linear-gradient(#fcf8e3 0%, #f8efc0 100%);
+    background-image: linear-gradient(#fcf8e3 0%, #f8efc0 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcf8e3', endColorstr='#fff8efc0', GradientType=0);
+    border-color: #f5e79e;
+    border-radius: 6px 6px 0 0;
+}
+.modal-danger {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2dede), to(#e7c3c3));
+    background-image: -webkit-linear-gradient(#f2dede 0%, #e7c3c3 100%);
+    background-image: -moz-linear-gradient(#f2dede 0%, #e7c3c3 100%);
+    background-image: -o-linear-gradient(#f2dede 0%, #e7c3c3 100%);
+    background-image: linear-gradient(#f2dede 0%, #e7c3c3 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
+    border-color: #dca7a7;
+    border-radius: 6px 6px 0 0;
+}
+
+.voffset { margin-top: 2px; }
+.voffset1 { margin-top: 5px; }
+.voffset2 { margin-top: 10px; }
+.voffset3 { margin-top: 15px; }
+.voffset4 { margin-top: 30px; }
+.voffset5 { margin-top: 40px; }
+.voffset6 { margin-top: 60px; }
+.voffset7 { margin-top: 80px; }
+.voffset8 { margin-top: 100px; }
+.voffset9 { margin-top: 150px; }
+
+
+.cont {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    float: left;
+    font-size: small;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cont1 {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    float: left;
+    font-size: small;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.cont2 {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    float: left;
+    font-size: small;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cont input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.cont1 input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.cont2 input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.checkmark1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.checkmark2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.cont:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.cont1:hover input ~ .checkmark1 {
+    background-color: #ccc;
+}
+
+.cont2:hover input ~ .checkmark2 {
+    background-color: #ccc;
+}
+
+.cont input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.cont1 input:checked ~ .checkmark1 {
+    background-color: #2196F3;
+}
+
+.cont2 input:checked ~ .checkmark2 {
+    background-color: #2196F3;
+}
+
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkmark1:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkmark2:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/* Show the checkmark when checked */
+.cont input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.cont1 input:checked ~ .checkmark1:after {
+    display: block;
+}
+
+.cont2 input:checked ~ .checkmark2:after {
+    display: block;
+}
+
+
+.cont .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.cont1 .checkmark1:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.cont2 .checkmark2:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+.button1{}
+.button2{}
+.button3{}
+

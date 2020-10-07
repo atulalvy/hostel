@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Hostel_office/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark tabs">
+        <a class="navbar-brand " href="{% url 'Homapage:homepage' %}">
+            <img class="img-responsive2" src="{% static 'images/logo.svg' %}" width="40" height="40" alt="CUSAT"> <span
+                id="sp">CENTRAL OFFICE FOR UNIVERSITY HOSTELS</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="selector"></div>
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <ul class="navbar-nav ">
+                <li class="nav-item ">
+                    <a href="{% url 'Hostel_office:index' %}" class="bez nav-link active1">Allotment</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{% url 'Hostel_office:add dept' %}" class="bez nav-link">control</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{% url 'login:Logout' %}" class="bez nav-link">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+{% endblock %}
+
+{% block contents %}
+
+    {% csrf_token %}
+    <div class="container mt-3">
+
+        <div style="float: left">
+            <div class="rs-select2 js-select-simple select--no-search"
+                 style="font-size:small">
+                <select class="rs-select2 js-select-simple select--no-search" id="dept"
+                        onchange="load_course_and_date()">
+{#                    {% for department in departments %}#}
+                        <option class="dropdown-item" href="#">Choose Department</option>
+{#                    {% endfor %}#}
+                </select>
+                <div class="select-dropdown">
+                </div>
+            </div>
+        </div>
+
+        <div style="float: left">
+            <div class="rs-select2 js-select-simple select--no-search"
+                 style="font-size:small">
+                <select class="rs-select2 js-select-simple select--no-search" id="course" onchange="load_data()">
+                    <option class="nav-link dropdown-toggle" href="#">choose course
+                    </option>
+                </select>
+                <div class="select-dropdown">
+                </div>
+            </div>
+        </div>
+
+        <div style="float: left">
+            <div class="rs-select2 js-select-simple select--no-search"
+                 style="font-size:small">
+                <select class="rs-select2 js-select-simple select--no-search" id="keralite" onchange="load_data()">
+                    <option value="1">Keralite</option>
+                    <option value="0">Non Keralite</option>
+                </select>
+                <div class="select-dropdown">
+                </div>
+            </div>
+        </div>
+
+        <div style="float: left">
+            <div class="rs-select2 js-select-simple select--no-search"
+                 style="font-size:small">
+                <select class="rs-select2 js-select-simple select--no-search" id="gender" onchange="load_data()">
+
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                    <option value="other">other</option>
+                </select>
+                <div class="select-dropdown">
+                </div>
+            </div>
+        </div>
+
+
+        <input class="form-control" id="myInput" type="text" placeholder="Search.." style="width: 200px; height: 35px;
+                float: right;">
+        <br>
+        <table class="table table-bordered">
+            <thead style="font-size: 12px">
+            <tr>
+                <th data-field="priority">Priority No.</th>
+                <th data-field="regno">Reg No.</th>
+                <th data-field="name">Name</th>
+                <th data-field="DOB">Date of Birth</th>
+                <th data-field="phy_hand">Physically Handicapped</th>
+                <th data-field="pm">Prime Minister Scheme</th>
+                <th data-field="ld">Lakshadweep (UT)</th>
+                <th data-field="caste">Category</th>
+                <th data-field="sub_caste">Sub Category</th>
+                <th data-field="year">Year of study</th>
+                <th data-field="dis">Distance</th>
+                <th data-field="Pincode">Pincode</th>
+                <th data-field="DOS">Date of application submission</th>
+                <th data-field="cat">CAT Rank</th>
+                <th data-field="alloted">Allotted</th>
+                <th data-field="hostel">Hostel</th>
+                <th data-field="room">Room No</th>
+                <th data-field="submit">Submit</th>
+                <th>Print</th>
+
+            </tr>
+            </thead>
+            <tbody id="minimal-tbody" style="font-size: 11px" onload="selected()">
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'Hostel_office/js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Application/js/main.js' %}"></script>
+{% endblock %}
+
+

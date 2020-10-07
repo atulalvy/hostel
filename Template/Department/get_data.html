@@ -1,0 +1,95 @@
+{% for model in models %}
+    {% if model.Pincode %}
+        <tr>
+
+            <td>{{ forloop.counter }}</td>
+            <td class="std_id" hidden>{{ model.id }}</td>
+            <td style="" class="reg_no">{{ model.Registration_No }}</td>
+            <td style="">{{ model.Name }}</td>
+            <td class="rs-select2 js-select-simple select--no-search gender">
+                <select class="gender_desc" style="width: 175px">
+                    <option disabled="disabled" selected="selected">
+                        {{ model.Gender }}
+                    </option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Female">Other</option>
+                </select>
+            </td>
+
+            <td style="" class="pincode"><input type="number" value="{{ model.Pincode }}" class="pin"></td>
+            <td style="" class="distance"><input type="number" value="{{ model.distance }}" class="dist"></td>
+            <td class="rs-select2 js-select-simple select--no-search keralaite">
+                <select class="keralaite_desc">
+                    <option disabled="disabled" selected="selected">
+                        {% if model.Keralite %}
+                            Keralite
+                        {% else %}
+                            Non Keralite
+                        {% endif %}
+                    </option>
+                    <option value="0">Non Keralite</option>
+                    <option value="1">Keralite</option>
+                </select>
+            </td>
+            <td style="" class="year_back"><label class="cont1">
+                <input type="checkbox" class="year"
+                        {% if model.year_back %}
+                       checked="checked"
+                        {% endif %}  class="checkmark1">
+                <span class="checkmark1"></span></label>
+            </td>
+            <td style="" class="category"><label class="cont2">{{ model.Category }}
+                <input type="checkbox" class="category-inner"
+                        {% if model.category_isvalid %}
+                       checked="checked"
+                        {% endif %}  class="checkmark2">
+                <span class="checkmark2"></span></label></td>
+            <td class="rs-select2 js-select-simple select--no-search yearofstudy">
+                <select class="yearofstudy_desc">
+                    <option disabled="disabled" selected="selected">
+                        {{ model.Year_of_Study }}
+                    </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td class="prime">
+                <select class="prime_desc">
+                    <option disabled="disabled" selected="selected">
+                        {% if model.Prime_Ministers_program %}
+                            Yes
+                        {% else %}
+                            No
+                        {% endif %}
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </td>
+            <td class="handicapped">
+                <select class="physically_desc">
+                    <option disabled="disabled" selected="selected">
+                        {% if model.Physically_Handicapped %}
+                            Yes
+                        {% else %}
+                            No
+                        {% endif %}
+                    </option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </td>
+            <td style="" class="button">
+                <button class="login100-form-btn allotment_submit" id="button_submit"
+                        {% if model.verified_department %}
+                        style="background-color: #b5b3b2"
+                        {% endif %}
+                        onclick="changeColor(this)">Submit
+                </button>
+            </td>
+        </tr>
+    {% endif %}
+{% endfor %}

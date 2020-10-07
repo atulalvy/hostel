@@ -1,0 +1,208 @@
+.image-background {
+    background-color: #490D40;
+    background: url("/static/images/amenity.jpg") no-repeat center center, linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.25));
+    background-blend-mode: overlay;
+    background-size: cover;
+    height: 100vh;
+    margin-top: -20px;
+}
+
+#image-background-details{
+    background-color: #490D40;
+    background: url("/static/images/amenity.jpg") no-repeat center center, linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.25));
+    background-blend-mode: overlay;
+    background-size: cover;
+    height: 20vh;
+    margin-top: -20px;
+}
+
+
+.image-background .heading {
+    color: white;
+    text-align: center;
+    padding-top: 150px;
+    z-index: 1;
+
+}
+
+.image-background p {
+    /*text-align: center;*/
+    padding-left: 50px;
+    padding-top: 530px;
+    z-index: 1;
+}
+
+
+
+.navbar {
+    height: 80px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    z-index: 100;
+    transition: background-color 1s ease 0s;
+}
+
+.navbar-default .navbar-brand {
+    margin-top: 10px;
+    color: white;
+    outline: none;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    outline: none;
+    margin: 10px 5px 5px 5px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #03050d;
+    outline: none;
+    border: 1px solid #38c225;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    /*border-radius: 5%;*/
+}
+.navbar-default .navbar-nav  li  a:active{
+    /*color: #6bd335 ;*/
+    background-color: #38c225 !important;
+    /*-webkit-border-radius: 50px;*/
+    /*-moz-border-radius: 50px;*/
+    /*border-radius: 50px;*/
+}
+
+.navbar-default .navbar-nav > li > a:visited {
+    color: #ecfcef;
+    text-decoration: none;
+    outline: none
+;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color:#38c225 ;
+    color: #000;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #d1d3ca;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #f2fde5;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    color: #080509;
+    background-color: #C57ED3;
+}
+.navbar-default .navbar-collapse{
+    border-color: #111111;
+}
+
+.navbar-default .navbar-collapse.collapse.in ul {
+    background-color: #030303;
+}
+
+/* Solid class attached on scroll past first section */
+.navbar.solid {
+    background-color: #111111;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
+    transition: background-color 1s ease 0s;
+    /*box-shadow: 0 0 4px #fbfbfb;*/
+}
+
+.navbar.solid .navbar-brand {
+    color: #f9f9f9;
+    background-color: #111111;
+    transition: color 1s ease 0s;
+}
+
+.navbar.solid .navbar-nav > li > a {
+    color: #d1d3ca;
+    transition: color 1s ease 0s;
+}
+
+
+p {
+    /*padding: 20px 100px;*/
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.bg-image.bg-parallax {
+    background-attachment: fixed;
+}
+
+.bg-image.overlay:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#2B323F), to(#2B323F));
+    background-image: linear-gradient(to bottom, #2B323F 0%, #2B323F 100%);
+    opacity: 0.4;
+}
+
+@media screen and (max-width: 510px) {
+    #sp {
+        font-size: 10px;
+    }
+}
+
+.main-button {
+    position:relative;
+    display:inline-block;
+    padding:10px 30px;
+    background-color: #38c225;
+    border: 2px solid transparent;
+    border-radius: 60px;
+    margin-top: 20px;
+    color: #FFF;
+    -webkit-transition:0.2s all;
+    transition:0.2s all;
+}
+
+.main-button:hover , .main-button:focus {
+    background-color:#fff;
+    border: 2px solid #38c225;
+    color:#38c225;
+}
+
+.main-button.icon-button:hover , .main-button.icon-button:focus {
+    padding-right: 45px;
+}
+
+.main-button.icon-button:after {
+    content:"\f178";
+    font-family:FontAwesome;
+    position:absolute;
+    width: 30px;
+    right: 15px;
+    text-align:center;
+    opacity:0;
+    -webkit-transition:0.2s all;
+    transition:0.2s all;
+}
+
+.main-button{
+    left:50%;
+    transform:translateX(-50%);
+
+}
+
+.main-button.icon-button:hover:after , .main-button.icon-button:focus:after {
+    opacity: 1;
+}
+
+
+.container a.active{
+    color: #000;
+    background-color: #ffffff;
+    border-radius: 50px;
+}

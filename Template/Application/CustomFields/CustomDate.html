@@ -1,0 +1,17 @@
+{% load crispy_forms_field %}
+
+<div class="col-sm-12">
+        <span class="label-input100">Date of {{ placeholder|default_if_none:field.name }}</span>
+    <div class="{{ wrapper_class }}" data-validate="{{ field.label }} is required">
+        <input type="{{ type_id }}" name="{{ field.name }}"
+               class="input--style-1" required="" id="id_{{ field.name }}" >
+    </div>
+</div>
+
+{% if form_show_errors %}
+    {% for error in field.errors %}
+        <p id="error_{{ forloop.counter }}_{{ field.auto_id }}" class="errorField text-danger">
+            {{ error }}
+        </p>
+    {% endfor %}
+{% endif %}

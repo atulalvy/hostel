@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+    <h2 style="text-align: center">Priority List for {{ Department }} - {{ Course }}</h2>
+    <div style="margin: 50px">
+        <h2 style="text-align: center">Keralite</h2>
+        <h3 style="text-align: center ; text-decoration: underline">Male</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead style="font-size: 12px">
+            <tr>
+                <th data-field="prioirty" class="data">Priority Number</th>
+                <th data-field="regno" class="data">Reg No.</th>
+                <th data-field="name" class="data">Name</th>
+                <th data-field="cat" class="data">Category</th>
+                <th data-field="Physically" class="data">Physically Handicapped</th>
+                <th data-field="Year" class="data">Year of Study</th>
+            </tr>
+            </thead>
+            <tbody id="minimal-tbody" style="font-size: 11px">
+            {% for model in m_keralite %}
+                <tr>
+                    <td>{{ forloop.counter }}
+                    </td>
+                    <td>{{ model.Registration_No }}</td>
+                    <td>{{ model.Name }}</td>
+                    {% if model.category_isvalid == 1 %}
+                        <td>{{ model.Category }}</td>
+                    {% else %}
+                        <td>GEN</td>
+                    {% endif %}
+                    {% if model.Physically_Handicapped %}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
+                    <td>{{ model.Year_of_Study }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <h3 style="text-align: center; text-decoration: underline">Female</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead style="font-size: 12px">
+            <tr>
+                <th data-field="prioirty" class="data">Priority Number</th>
+                <th data-field="regno" class="data">Reg No.</th>
+                <th data-field="name" class="data">Name</th>
+                <th data-field="cat" class="data">Category</th>
+                <th data-field="Physically" class="data">Physically Handicapped</th>
+                <th data-field="Year" class="data">Year of Study</th>
+            </tr>
+            </thead>
+            <tbody id="minimal-tbody" style="font-size: 11px">
+            {% for model in f_keralite %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ model.Registration_No }}</td>
+                    <td>{{ model.Name }}</td>
+                    {% if model.category_isvalid == 1 %}
+                        <td>{{ model.Category }}</td>
+                    {% else %}
+                        <td>GEN</td>
+                    {% endif %}
+                    {% if model.Physically_Handicapped %}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
+                    <td>{{ model.Year_of_Study }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br><br><br>
+        <h2 style="text-align: center">Non - Keralite</h2>
+        <h3 style="text-align: center ; text-decoration: underline">Male</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead style="font-size: 12px">
+            <tr>
+                <th data-field="prioirty" class="data">Priority Number</th>
+                <th data-field="regno" class="data">Reg No.</th>
+                <th data-field="name" class="data">Name</th>
+                <th data-field="cat" class="data">Category</th>
+                <th data-field="Physically" class="data">Physically Handicapped</th>
+                <th data-field="Year" class="data">Year of Study</th>
+            </tr>
+            </thead>
+            <tbody id="minimal-tbody" style="font-size: 11px">
+            {% for model in m_nonkeralite %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ model.Registration_No }}</td>
+                    <td>{{ model.Name }}</td>
+                    {% if model.category_isvalid == 1 %}
+                        <td>{{ model.Category }}</td>
+                    {% else %}
+                        <td>GEN</td>
+                    {% endif %}
+                    {% if model.Physically_Handicapped %}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
+                    <td>{{ model.Year_of_Study }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <h3 style="text-align: center; text-decoration: underline">Female</h3>
+        <br>
+        <table class="table table-bordered">
+            <thead style="font-size: 12px">
+            <tr>
+                <th data-field="prioirty" class="data">Priority Number</th>
+                <th data-field="regno" class="data">Reg No.</th>
+                <th data-field="name" class="data">Name</th>
+                <th data-field="cat" class="data">Category</th>
+                <th data-field="Physically" class="data">Physically Handicapped</th>
+                <th data-field="Year" class="data">Year of Study</th>
+            </tr>
+            </thead>
+            <tbody id="minimal-tbody" style="font-size: 11px">
+            {% for model in f_nonkeralite %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ model.Registration_No }}</td>
+                    <td>{{ model.Name }}</td>
+                    {% if model.category_isvalid == 1 %}
+                        <td>{{ model.Category }}</td>
+                    {% else %}
+                        <td>GEN</td>
+                    {% endif %}
+                    {% if model.Physically_Handicapped %}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
+                    <td>{{ model.Year_of_Study }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="#" class="main-button icon-button hide-button" onclick="print()">Print</a>
+
+    <a href="/department/" class="main-button icon-button hide-button">Back</a>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'Department/js/main.js' %}"></script>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Hostel_office/css/main.css' %}">
+{% endblock %}

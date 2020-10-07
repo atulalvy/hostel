@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Application/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Application/css/main.css' %}">
+{% endblock %}
+{% block contents %}
+    <div class="wrap-login100" style="margin: auto">
+        <div id="Login" class="tabcontent">
+            <div class="login100-form validate-form">
+                <div class="form-row w-100 ">
+                    <div class="col-sm-4">
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Registration No</span>
+                            <p class="input100">{{ models.Registration_No }}</p>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Name</span>
+                            <p class="input100">{{ models.Name }}</p>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Mobile Number</span>
+                            <p class="input100">{{ models.Mobile_Number }}</p>
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4  align-self-end">
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom"></span>
+                            <img class="custom-img" src='{{ models.Photo_upload.url }}'>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-26"
+                     data-validate="Address is required" style="margin-bottom: 2px">
+                    <span class="label-input100 label-input100-custom">Address For Communication</span>
+                    <p class="input100" id="commaddress">{{ models.Address_For_Communication }}
+                    </p>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-26"
+                     data-validate="Address is required" style="margin-bottom: 2px">
+                    <span class="label-input100 label-input100-custom">Permanent Address</span>
+                    <p class="input100" id="permaddress">{{ models.Permanent_Address }}
+                    </p>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="form-row w-100">
+                    <div class="col-sm-4">
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-26"
+                             data-validate="Pincode is required" style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Pin code</span>
+                            <p class="input100">{{ models.Pincode }}</p>
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4  align-self-end">
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">State</span>
+                            <p class="input100">{{ models.State }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18" style="margin-bottom: 2px">
+                    <span class="label-input100 label-input100-custom">District</span>
+                    <p class="input100">{{ models.District }}</p>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18" style="margin-bottom: 2px">
+                    <span class="label-input100 label-input100-custom">Name of guardian</span>
+                    <p class="input100">{{ models.Name_of_Guardian }}</p>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-26" style="margin-bottom: 2px">
+                    <span class="label-input100 label-input100-custom">Phone Number of guardian</span>
+                    <p class="input100">{{ models.PhoneNumber_of_Guardian }}</p>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18" style="margin-bottom: 2px">
+                    <span class="label-input100 label-input100-custom">Next year of study</span>
+                    <p class="input100">{{ models.Year_of_Study }}</p>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="form-row w-100">
+                    <div class="col-sm-4">
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Gender</span>
+                            <p class="input100">{{ models.Gender }}</p>
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4  align-self-end">
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Category</span>
+                            <p class="input100">{{ models.Category }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18" id="subcategory"
+                        {% if models.Sub_Category %}
+                     hidden
+                        {% else %}
+
+                        {% endif %}>
+                    <span class="label-input100 label-input100-custom">Sub category</span>
+                    <p class="input100">{{ models.Sub_Category }}</p>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="form-row w-100">
+                    <div class="col-sm-4">
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Physically handicapped</span>
+                            <p class="input100">{% if models.Physically_Handicapped %}
+                                Yes
+                            {% else %}
+                                No
+                            {% endif %}</p>
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4  align-self-end">
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Keralite</span>
+                            <p class="input100">{% if models.Keralite %}
+                                Yes
+                            {% else %}
+                                No
+                            {% endif %}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18" style="margin-bottom: 2px">
+                    <span class="label-input100 label-input100-custom">Department</span>
+                    <p class="input100">{{ models.Department }}</p>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18" style="margin-bottom: 2px">
+                    <span class="label-input100 label-input100-custom">Course of study</span>
+                    <p class="input100">{{ models.Course_of_study }}</p>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="form-row w-100">
+                    <div class="col-sm-4">
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Date of admission</span>
+                            <p class="input100">{{ models.Admission_date }}</p>
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4  align-self-end">
+                        <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Date of course completion</span>
+                            <p class="input100">{{ models.Course_completion_date }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row w-100">
+                    <div class="col-sm-4">
+                        <div class="wrap-input100 wrap-input-100-custom  -line validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom ">CAT Rank</span>
+                            <p class="input100">{{ models.CAT_Rank }}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4 ">
+                        <div class="wrap-input100 wrap-input-100-custom  m-b-18" style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom">Prime ministers program</span>
+                            <div class=" m-b-18">
+                                <p class="input100">{% if models.Prime_Ministers_program %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row w-100">
+                    <div class="col-sm-4">
+                        <div class="wrap-input100 wrap-input-100-custom  -line validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom ">Hostel Admitted</span>
+                            <p class="input100">{{ models.Hostel_admitted }}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <div class="wrap-input100 wrap-input-100-custom  -line validate-input m-b-18"
+                             style="margin-bottom: 2px">
+                            <span class="label-input100 label-input100-custom ">Room No</span>
+                            <p class="input100">{{ models.Room_No }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="login100-form-btn" id="print_button1" onclick="print1()" style="display: inline-block">print
+        </button>
+        <button class="login100-form-btn" id="back_button" onclick="goback()" style="display: inline-block">Back
+        </button>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'Application/js/main.js' %}"></script>
+{% endblock %}
+

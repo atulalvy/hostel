@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Hostel_office/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark tabs">
+        <a class="navbar-brand " href="{% url 'Homapage:homepage' %}">
+            <img class="img-responsive2" src="{% static 'images/logo.svg' %}" width="40" height="40" alt="CUSAT"> <span
+                id="sp">CENTRAL OFFICE FOR UNIVERSITY HOSTELS</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="selector"></div>
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <ul class="navbar-nav ">
+                <li class="nav-item ">
+                    <a href="{% url 'login:Logout' %}" class="bez nav-link active1">Logout</a>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+{% endblock %}
+
+
+{% block contents %}
+
+    {% csrf_token %}
+    <div class="container mt-3">
+    <div style="float: left">
+        <div class="rs-select2 js-select-simple select--no-search"
+             style="font-size:small">
+            <select class="rs-select2 js-select-simple select--no-search" name="course" id="course"
+                    onchange="load_data()">
+                <option class="nav-link dropdown-toggle" href="#">choose course
+                </option>
+                {% for course in courses %}
+                    <option class="nav-link dropdown-toggle" href="#" value="{{ course }}">{{ course }}
+                    </option>
+                {% endfor %}
+            </select>
+            <div class="select-dropdown">
+            </div>
+            <select style="margin: 10px 0px" class="rs-select2 js-select-simple select--no-search" name="verification" id="verification"
+                    onchange="load_data()">
+                <option disabled="disabled" selected="selected">First Years
+                    </option>
+                <option value="1">Seniors</option>
+                <option value="0">First Years</option>
+            </select>
+            <div class="select-dropdown">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-3">
+
+        <input class="form-control" id="myInput" type="text" placeholder="Search.." style="width: 200px;height: 35px;
+        float: right;">
+        <br>
+        <table class="table table-bordered">
+            <thead style="font-size: 12px">
+            <tr>
+                <th data-field="SNo">SL.NO</th>
+                <th data-field="regno">Reg No.</th>
+                <th data-field="name">Name</th>
+                <th data-field="gender">Gender</th>
+                <th data-field="pin">Pin Code</th>
+                <th data-field="distance">Distance</th>
+                <th data-field="keralite">Nativity</th>
+                <th data-field="year_back">Year Back</th>
+                <th data-field="cat">Category</th>
+                <th data-field="year">Year of Study</th>
+                <th data-field="pm">Prime Minister's Education Program</th>
+                <th data-field="handi">Handicapped</th>
+                <th data-field="looking">Submit</th>
+            </tr>
+            </thead>
+            <tbody id="minimal-tbody" style="font-size: 11px">
+
+            </tbody>
+        </table>
+    </div>
+    <a class="main-button icon-button" onclick="priority()">Create Priority List</a>
+    <a class="link_distance" target="_blank" href="http://gstserver.com/tools/distance-between-pin-codes/">Link for
+        distance calculation</a>
+{% endblock %}
+
+{% block scripts %}
+    {#    <script type="text/javascript" src="{% static 'Department/js/main.js' %}"></script>#}
+    <script type="text/javascript" src="{% static 'Department/js/main.js' %}"></script>
+    {#    <script type="text/javascript" src="{% static 'Application/js/main.js' %}"></script>#}
+{% endblock %}
+

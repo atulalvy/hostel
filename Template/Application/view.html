@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Application/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Application/css/main.css' %}">
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark tabs">
+        <a class="navbar-brand " href="{% url 'Homapage:homepage' %}">
+            <img class="img-responsive2" src="{% static 'images/logo.svg' %}" width="40" height="40" alt="CUSAT"> <span
+                id="sp">COCHIN UNIVERSITY OF SCIENCE AND TECHNOLOGY</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="selector"></div>
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <ul class="navbar-nav ">
+                <li class="nav-item ">
+                    <a href="{% url 'Application:apply' %}" class="bez nav-link">Apply</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{% url 'Application:view' %}" class="bez nav-link active1">View</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{% url 'Application:result' %}" class="bez nav-link">Result</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{% url 'login:Logout' %}" class="bez nav-link">Logout</a>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+{% block contents %}
+    {% if request.user.applications.Name %}
+
+    <div class="container-login100 w-100">
+        <div class="wrap-login100">
+            <div class="login100-form-title" style="background-image: url({% static 'images/cusat.jpg' %});">
+					<span class="login100-form-title-1">
+						 VIEW APPLICATION
+					</span>
+            </div>
+            <div id="Login" class="tabcontent">
+                <div class="login100-form validate-form">
+                    <div class="form-row w-100">
+                        <div class="col-sm-4">
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">Registration No</span>
+                                <p class="input100">{{ user.applications.Registration_No }}</p>
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">Name</span>
+                                <p class="input100">{{ user.applications.Name }}</p>
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">Date of Birth</span>
+                                <p class="input100">{{ user.applications.Date_of_birth }}</p>
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">Mobile Number</span>
+                                <p class="input100">{{ user.applications.Mobile_Number }}</p>
+                                <span class="focus-input100"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4  align-self-end">
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom"></span>
+                                <img class="custom-img" src='{{ user.applications.Photo_upload.url }}'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-26"
+                         data-validate="Address is required">
+                        <span class="label-input100 label-input100-custom">Address For Communication</span>
+                        <p class="input100" id="commaddress">{{ user.applications.Address_For_Communication }}
+                        </p>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-26"
+                         data-validate="Address is required">
+                        <span class="label-input100 label-input100-custom">Permanent Address</span>
+                        <p class="input100" id="permaddress">{{ user.applications.Permanent_Address }}
+                        </p>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-26"
+                             data-validate="Distance">
+                        <span class="label-input100 label-input100-custom">Distance</span>
+                        <p class="input100">{{ user.applications.distance }}</p>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="form-row w-100">
+                        <div class="col-sm-4">
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-26"
+                                 data-validate="Pincode">
+                                <span class="label-input100 label-input100-custom">Pincode</span>
+                                <p class="input100">{{ user.applications.Pincode }}</p>
+                                <span class="focus-input100"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4  align-self-end">
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">State</span>
+                                <p class="input100">{{ user.applications.State }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                        <span class="label-input100 label-input100-custom">District</span>
+                        <p class="input100">{{ user.applications.District }}</p>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                        <span class="label-input100 label-input100-custom">Name of guardian</span>
+                        <p class="input100">{{ user.applications.Name_of_Guardian }}</p>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-26">
+                        <span class="label-input100 label-input100-custom">Phone Number of guardian</span>
+                        <p class="input100">{{ user.applications.PhoneNumber_of_Guardian }}</p>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                        <span class="label-input100 label-input100-custom">Next year of study</span>
+                        <p class="input100">{{ user.applications.Year_of_Study }}</p>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="form-row w-100">
+                        <div class="col-sm-4">
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">Gender</span>
+                                <p class="input100">{{ user.applications.Gender }}</p>
+                                <span class="focus-input100"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4  align-self-end">
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">Category</span>
+                                <p class="input100">{{ user.applications.Category }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18" id="subcategory"
+                         {% if user.applications.Sub_Category %}
+                                    hidden
+                                {% else %}
+
+                                {% endif %}>
+                        <span class="label-input100 label-input100-custom">Sub category</span>
+                        <p class="input100">{{ user.applications.Sub_Category }}</p>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="form-row w-100">
+                        <div class="col-sm-4">
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">Differently-Abled</span>
+                                <p class="input100">{% if user.applications.Physically_Handicapped %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}</p>
+                                <span class="focus-input100"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4  align-self-end">
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">Keralite</span>
+                                <p class="input100">{% if user.applications.Keralite %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                        <span class="label-input100 label-input100-custom">Department</span>
+                        <p class="input100">{{ user.applications.Department }}</p>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                        <span class="label-input100 label-input100-custom">Course of study</span>
+                        <p class="input100">{{ user.applications.Course_of_study }}</p>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="form-row w-100">
+                        <div class="col-sm-4">
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">Date of admission</span>
+                                <p class="input100">{{ user.applications.Admission_date }}</p>
+                                <span class="focus-input100"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4  align-self-end">
+                            <div class="wrap-input100 wrap-input-100-custom  validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom">Date of course completion</span>
+                                <p class="input100">{{ user.applications.Course_completion_date }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row w-100">
+                        <div class="col-sm-4">
+                            <div class="wrap-input100 wrap-input-100-custom  -line validate-input m-b-18">
+                                <span class="label-input100 label-input100-custom ">CAT Rank</span>
+                                <p class="input100">{{ user.applications.CAT_Rank }}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4 ">
+                            <div class="wrap-input100 wrap-input-100-custom  m-b-18">
+                                <span class="label-input100 label-input100-custom">Prime ministers Education program</span>
+                                <div class=" m-b-18">
+                                    <p class="input100">{% if  user.applications.Prime_Ministers_program %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'Application/js/main.js' %}"></script>
+{% endblock %}
+

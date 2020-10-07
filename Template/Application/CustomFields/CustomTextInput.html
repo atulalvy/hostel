@@ -1,0 +1,29 @@
+{% load crispy_forms_field %}
+
+{%  if field.name != 'distance' %}
+    <div class="{{ wrapper_class }}" data-validate="Enter {{ field.name }}">
+        <span class="label-input100">{{ label|default:field.label }}</span>
+        <input type = "{{ type_id|default:'text' }}" class="input100" name="{{ field.name }}" placeholder="Enter {{ field.label }}"  id = "{{css_id}}" >
+        <span class="focus-input100"></span>
+    </div>
+{%  endif %}
+
+{% if field.name == 'distance' %}
+    <div class="{{ wrapper_class }}" data-validate="Enter {{ field.name }}">
+        <span class="label-input100">{{ label|default:field.label }}</span>
+        <input type = "{{ type_id|default:'text' }}" class="input100" name="{{ field.name }}" placeholder="Enter numeric distance value (For example: 200)"  id = "{{css_id}}" >
+        <span class="focus-input100"></span>
+    </div>
+{% endif %}
+
+
+{% if form_show_errors %}
+    {% for error in field.errors %}
+        <p id="error_{{ forloop.counter }}_{{ field.auto_id }}" class="errorField text-danger">
+            {{ error }}
+        </p>
+    {% endfor %}
+{% endif %}
+
+
+

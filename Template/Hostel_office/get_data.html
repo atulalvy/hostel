@@ -1,0 +1,102 @@
+{% for model in models %}
+    {% if model.distance %}
+        <tr>
+            <td style="" class="priority">{{ forloop.counter }}</td>
+            <td style="" class="reg_no">{{ model.Registration_No }}</td>
+            <td style="">{{ model.Name }}</td>
+            <td style="" class="DOB">{{ model.Date_of_birth }}</td>
+            <td style="" class="physically_handicapped"><label class="cont">
+                {% if model.Physically_Handicapped %} yes
+                {% else %} no
+                {% endif %}  </label>
+            </td>
+
+            <td style="" class="prime_ministers_prgm"><label class="cont1">
+                {% if model.Prime_Ministers_program %} yes
+                {% else %} no
+                {% endif %}  </label>
+            </td>
+            <td style="" class="lashadweep"><label class="cont1">
+                {% if model.State == "Lakshadweep (UT)" %} yes
+                {% else %} no
+                {% endif %}  </label>
+            </td>
+            <td style="" class="category">
+                {% if model.category_isvalid %}
+                    {{ model.Category }}
+                {% else %} GEN
+                {% endif %}  </td>
+            <td>{% if model.Sub_Category %}
+                {{ model.Sub_Category }}
+            {% else %} None
+            {% endif %} </td>
+            <td>
+                {{ model.Year_of_Study }}
+            </td>
+            <td style="" class="distance">{{ model.distance }}</td>
+            <td style="" class="pincode"><input type="number" value="{{ model.Pincode }}"></td>
+            <td style="" class="DOS">{{ model.Date_of_application }}</td>
+            <td style="" class="cat_rank">{{ model.CAT_Rank }}</td>
+
+            <td style="" class="allot"><label class="cont1">
+                <input type="checkbox" class="alloted"
+                        {% if model.admitted %}
+                       checked="checked"
+                        {% endif %}  class="checkmark1">
+                <span class="checkmark1"></span></label>
+            </td>
+
+            <td class="rs-select2 js-select-simple select--no-search">
+                <select class="hostel" style="width: 175px">
+                    <option disabled="disabled" selected="selected">
+                        {% if model.admitted %}
+                            {{ model.Hostel_admitted }}
+                        {% else %}
+                            hostel
+                        {% endif %}
+                    </option>
+                    {% if model.Gender == 'Male' %}
+                        <option data-width="50" value="Sanathana Hostel for Boys">Sanathana Hostel for Boys</option>
+                        <option value="Sarovar Hostel for Boys">Sarovar Hostel for Boys</option>
+                        <option value="Sarovar Research Floor for Boys">Sarovar Research Floor for Boys</option>
+                        <option value="Siberia Hostel for Boys">Siberia Hostel for Boys</option>
+                        <option value="Swaraj Hostel for Boys">Swaraj Hostel for Boys</option>
+                        <option value="Sagar Hostel for Boys">Sagar Hostel for Boys</option>
+                        <option value="Sahara Hostel for Boys">Sahara Hostel for Boys</option>
+                        <option value="Cochin University Marine Sciences(CUMS) Hostel for Boys">
+                            Cochin University Marine Sciences(CUMS) Hostel for Boys
+                        </option>
+                    {% else %}
+                        <option value="Anaswara Hostel for Girls">Anaswara Hostel for Girls</option>
+                        <option value="Aiswarya Hostel for Girls">Aiswarya Hostel for Girls</option>
+                        <option value="Athulya Hostel for Girls">Athulya Hostel for Girls</option>
+                        <option value="Ananya Girls Hostel">Ananya Girls Hostel</option>
+                        <option value="Anagha Hostel for Girls">Anagha Hostel for Girls</option>
+                        <option value="Alakananda Hostel for Girls">Alakananda Hostel for Girls</option>
+                    {% endif %}
+                </select>
+                <div class="select-dropdown"></div>
+            </td>
+            <td class="room_no">
+                <input type="text" style="width: 50px;" value="{{ model.Room_No }}" class="room">
+            </td>
+
+
+
+
+            <td style="" class="button">
+                <button class="login100-form-btn allotment_submit" id="button_submit"
+                        {% if model.admitted %}
+                        style="background-color: #b5b3b2"
+                        {% endif %}
+                        onclick="changeColor(this)">Submit
+                </button>
+            </td>
+            <td>
+                <button class="login100-form-btn print_button" id="print_button">print</button>
+            </td>
+        </tr>
+    {% endif %}
+
+{% endfor %}
+

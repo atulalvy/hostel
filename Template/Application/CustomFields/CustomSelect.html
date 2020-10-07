@@ -1,0 +1,22 @@
+{% load crispy_forms_field %}
+<div class="{{ wrapper_class }}" id="{{ field.auto_id }}" data-validate="Select {{ field.name }}">
+    <span class="label-input100">{{ field.label }}</span>
+    <div class="rs-select2 js-select-simple select--no-search"
+         style="font-size:small">
+        {% crispy_field field 'class' 'rs-select2 js-select-simple select--no-search' %}
+        <div class="select-dropdown">
+
+        </div>
+    </div>
+    <span class="focus-input100"></span>
+</div>
+
+
+{% if form_show_errors %}
+    {% for error in field.errors %}
+        <p id="error_{{ forloop.counter }}_{{ field.auto_id }}" class="errorField text-danger">
+            {{ error }}
+        </p>
+    {% endfor %}
+{% endif %}
+

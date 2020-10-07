@@ -1,0 +1,20 @@
+{% load crispy_forms_field %}
+
+<div class="{{ wrapper_class }}" data-validate="Enter {{ field.label }}">
+    <span class="label-input100">{{ field.label }}</span>
+    <textarea class="input100" type="text" name="{{ field.name }}" placeholder="Enter {{ field.label }}" id = {{ field.name }}></textarea>
+
+    <span class="focus-input100"></span>
+</div>
+
+
+{% if form_show_errors %}
+    {% for error in field.errors %}
+        <p id="error_{{ forloop.counter }}_{{ field.auto_id }}" class="errorField text-danger">
+            {{ error }}
+        </p>
+    {% endfor %}
+{% endif %}
+
+
+

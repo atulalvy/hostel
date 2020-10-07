@@ -1,0 +1,18 @@
+{% load crispy_forms_field %}
+<div class="wrap-input100 validate-input m-b-26" data-validate="{{ field.data_validate }}">
+    <span class="label-input100">{{ field.label }}</span>
+    {% crispy_field field 'class' field_class %}
+
+    <span class="focus-input100"></span>
+</div>
+
+{% if form_show_errors %}
+    {% for error in field.errors %}
+        <p id="error_{{ forloop.counter }}_{{ field.auto_id }}" class="errorField text-danger">
+            {{ error }}
+        </p>
+    {% endfor %}
+{% endif %}
+
+
+
